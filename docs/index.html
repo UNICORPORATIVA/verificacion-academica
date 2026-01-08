@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Portal de Verificación Académica</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background: #ffffff;
+      padding: 30px;
+      width: 460px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .logo img {
+      max-width: 180px;
+    }
+    h1 {
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      background: #003366;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+
+    <div class="logo">
+      <img src="logo.png" alt="Logo Institucional">
+    </div>
+
+    <h1>PORTAL DE VERIFICACIÓN ACADÉMICA<br>REPÚBLICA DE COLOMBIA</h1>
+
+    <input type="text" id="cedula" placeholder="INGRESE NÚMERO DE CÉDULA">
+    <input type="text" id="programa" placeholder="INGRESE PROGRAMA">
+    <button onclick="verificar()">VERIFICAR</button>
+
+    <div class="result" id="resultado"></div>
+  </div>
+
+<script>
+function verificar() {
+  const cedula = document.getElementById("cedula").value.toUpperCase();
+  const programa = document.getElementById("programa").value.toUpperCase();
+  const resultado = document.getElementById("resultado");
+
+  if (cedula === "16939249" && programa === "INGENIERIA ELECTRONICA") {
+    resultado.innerHTML = `
+      <strong>RESULTADO DE VERIFICACIÓN ACADÉMICA</strong><br><br>
+      <strong>NOMBRE COMPLETO:</strong> JOHAN ERWING HINESTROZA TORRES<br>
+      <strong>NÚMERO DE CÉDULA:</strong> 16.939.249<br>
+      <strong>PROGRAMA:</strong> INGENIERÍA ELECTRÓNICA<br>
+      <strong>CÓDIGO SNIES:</strong> 5609<br>
+      <strong>FECHA DE GRADUACIÓN:</strong> 12 DE DICIEMBRE DE 2017
+    `;
+  } else {
+    resultado.innerHTML = "NO SE ENCONTRÓ INFORMACIÓN ASOCIADA A LOS DATOS INGRESADOS.";
+  }
+}
+</script>
+
+</body>
+</html>
